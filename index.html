@@ -68,69 +68,17 @@
       margin: 0.25rem 0 1rem 0;
     }
 
-    .countdown {
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-      margin: 1.5rem 0;
-      flex-wrap: nowrap;
-      flex-shrink: 1;
-    }
-
-    .countdown-box {
-      background: #111;
-      border: 2px solid #ffd700;
-      border-radius: 10px;
-      padding: 0.75rem;
-      width: 65px;
-      box-shadow: 0 0 6px #000;
-    }
-
-    .countdown-number {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #ffd700;
-      font-family: 'Orbitron', sans-serif;
-    }
-
-    .countdown-label {
-      font-size: 0.75rem;
-      color: #ccc;
-      margin-top: 0.25rem;
-    }
-
-    .ticket-cta {
-      margin-top: 1.5rem;
-      background: rgba(255, 215, 0, 0.1);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 2px dashed #ffd700;
-      box-shadow: 0 0 10px #000;
-    }
-
-    .ticket-cta h3 {
-      margin: 0 0 1rem 0;
-      color: #ffd700;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.2rem;
-    }
-
-    .ticket-button {
+    .past-event-badge {
       display: inline-block;
-      background: #ffd700;
-      color: #000;
-      font-weight: bold;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
+      margin-top: 1rem;
+      background: rgba(255, 215, 0, 0.1);
+      border: 2px dashed #ffd700;
+      color: #ffd700;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      padding: 0.6rem 1.2rem;
       border-radius: 8px;
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 10px #ffd700;
-    }
-
-    .ticket-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ffd700;
     }
 
     .map-embed iframe {
@@ -201,20 +149,6 @@
       color: #888;
     }
 
-    @media (max-width: 480px) {
-      .countdown-box {
-        width: 50px;
-        padding: 0.5rem;
-      }
-
-      .countdown-number {
-        font-size: 1.2rem;
-      }
-
-      .countdown-label {
-        font-size: 0.65rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -231,29 +165,7 @@
       Asheville, North Carolina 28806
     </p>
 
-    <div class="countdown" id="countdown">
-      <div class="countdown-box">
-        <div class="countdown-number" id="days">--</div>
-        <div class="countdown-label">Days</div>
-      </div>
-      <div class="countdown-box">
-        <div class="countdown-number" id="hours">--</div>
-        <div class="countdown-label">Hours</div>
-      </div>
-      <div class="countdown-box">
-        <div class="countdown-number" id="minutes">--</div>
-        <div class="countdown-label">Minutes</div>
-      </div>
-      <div class="countdown-box">
-        <div class="countdown-number" id="seconds">--</div>
-        <div class="countdown-label">Seconds</div>
-      </div>
-    </div>
-
-    <div class="ticket-cta">
-      <h3>🔥 Don’t miss out — grab your spot!</h3>
-      <a href="https://simpletix.com/e/all-jammed-up-tickets-212015#location" target="_blank" class="ticket-button">🎟️ Buy Tickets</a>
-    </div>
+    <div class="past-event-badge">PAST EVENT — THANKS FOR JAMMING WITH US</div>
 
     <div class="map-embed">
       <iframe
@@ -286,32 +198,5 @@
     </div>
     <p>© 2025 All Jammed Up. Built with good vibes and GitHub.</p>
   </footer>
-
-  <script>
-    const targetDate = new Date('July 19, 2025 13:00:00');
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
-
-      if (diff <= 0) {
-        document.getElementById('countdown').innerHTML = "🎉 It's festival time!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = hours;
-      document.getElementById('minutes').textContent = minutes;
-      document.getElementById('seconds').textContent = seconds;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
 </body>
 </html>
